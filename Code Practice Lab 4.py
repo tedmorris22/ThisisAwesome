@@ -44,28 +44,24 @@ while True:
     # Inner loop to input scores for a single set
     while True:
         score_input = input("Enter test score: ")
-
         # Check if input is "end"
         if score_input.lower() == "end":
-            # end the set of score entries and outputs the Total and Average Score for the set that was just finished.
-            print(f"Your Total:", )
-            print(f"Avg. Score:",)
+            if count>0:
+                print("===============================")
+                print(f"Your Total:", total_score)
+                # Calculate the average score
+                print(f"Avg. Score:", total_score/count)
+                print("===============================")
+
+            else:
+                print("No Scores entered.")
             break
-        # ---- Your code here ----------
-        int(score_input)
-    #     # Validate the input score
-    #     if 0 <= score_input <= 100:
-    #         #code here
-    #     else:
-    #             # ---- Your code here ----------
-    #             # Calculate the average score
-    #             # ---- Your code here ----------
-    #
-    # # Ask the user if they want to enter another set of scores
-    # another_set = input("Enter another set of test scores (y/n)? ")
-    # if another_set.lower() != "y":
-    #     break
-    # else:
-    #     print("\nEnter test scores")
-    #     print("Enter 'end' to end input")
-    #     print("===============================")
+        else:
+            score = int(score_input)
+            total_score += score
+            count += 1
+    #Ask the user if they want to enter another set of scores
+    another = input("Enter another set of test scores (y/n)? ")
+    if another != "y":
+        print("Goodbye!")
+        break
